@@ -7,3 +7,4 @@ const featureAccessRole = ["admin", "manager"];
 const canAccess = currentUserRole.some(rol => featureAccessRole.includes(rol))
 console.log(canAccess)
 
+
