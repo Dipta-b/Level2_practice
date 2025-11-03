@@ -1,4 +1,5 @@
 class Counter {
+    //constructor e initial value rakhe
     constructor(count) {
         this.count = count;
     }
