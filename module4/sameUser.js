@@ -17,7 +17,7 @@ const commonFrinedsList = (usersA, usersB) => {
     const idListA = new Set(usersA.map(user => user.id));
     usersB.forEach((usersB) => {
         if (idListA.has(usersB.id)) {
-            commonFriends.push(usersB);
+            commonFriends.push(usersB);  
         }
     })
 }
