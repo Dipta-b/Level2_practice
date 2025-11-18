@@ -12,4 +12,3 @@ function formatValue(value: TypeOfTheValue): TypeOfTheValue {
     }
 }
 
-console.log(formatValue(false))
