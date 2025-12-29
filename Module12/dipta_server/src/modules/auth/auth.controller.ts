@@ -1,17 +1,39 @@
-
-import { Request, Response } from "express"
-import { authServices } from "./auth.service"
+import { Request, Response } from "express";
+import { authServices } from "./auth.service";
 
 const loginUser = async (req: Request, res: Response) => {
-
-    const { email, password } = req.body;
-
     try {
+        const { email, password } = req.body ?? {};
+
+        if (!email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "Email and password are required",
+            });
+        }
+
         const result = await authServices.loginUser(email, password);
-        // console.log(result.rows[0]);
+
+        // 🔴 Email not found
+        if (result === null) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found with this email",
+            });
+        }
+
+        // 🔴 Wrong password
+        if (result === false) {
+            return res.status(401).json({
+                success: false,
+                message: "Incorrect password",
+            });
+        }
+
+        // ✅ Success
         res.status(200).json({
-            success: false,
-            message: "Login Successfully",
+            success: true,
+            message: "Login successful",
             data: result,
         });
     } catch (err: any) {
@@ -20,11 +42,8 @@ const loginUser = async (req: Request, res: Response) => {
             message: err.message,
         });
     }
-
-}
+};
 
 export const authController = {
     loginUser,
-}
-
-
+};

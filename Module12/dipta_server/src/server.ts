@@ -14,7 +14,6 @@ app.use(express.json());
 
 const startServer = async () => {
   try {
-    // ✅ wait for DB initialization
     await initDB();
     console.log("Database initialized successfully");
 
