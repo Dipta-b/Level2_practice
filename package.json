@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/Dipta-b/Level_2_practice#readme",
   "devDependencies": {
-    "@types/node": "^24.10.3",
+    "@types/node": "^24.10.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.2.0"
-  }
+  },
+  "type": "commonjs"
 }
